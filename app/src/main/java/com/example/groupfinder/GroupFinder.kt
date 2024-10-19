@@ -28,7 +28,7 @@ import com.example.groupfinder.data.LoginUiState
 import com.example.groupfinder.ui.CreateGroup
 import com.example.groupfinder.ui.GroupList
 import com.example.groupfinder.ui.MyGroups
-import com.example.groupfinder.ui.ProfileScreen2
+import com.example.groupfinder.ui.ProfileScreen
 //import com.example.groupfinder.ui.ProfileSearch
 import com.example.groupfinder.ui.UserViewModel
 import kotlin.math.log
@@ -103,7 +103,7 @@ fun GroupFinderApp(
             }
             composable(route = GroupFinderScreen.ProfileScreen.name) {
                 val userViewModel = UserViewModel()
-                ProfileScreen2(viewModel = userViewModel)
+                ProfileScreen(viewModel = userViewModel)
             }
             composable(route = GroupFinderScreen.MyGroupsScreen.name) {
                 //val userViewModel = UserViewModel()
