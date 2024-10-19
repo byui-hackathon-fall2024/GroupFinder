@@ -42,6 +42,7 @@ import com.example.groupfinder.ui.theme.ButtonBlue
 import com.example.groupfinder.ui.theme.DarkBlue
 import com.example.groupfinder.ui.theme.GroupFinderTheme
 import com.example.groupfinder.ui.theme.Peach
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 /*
 * TODO:
@@ -55,6 +56,7 @@ fun ProfileScreen(viewModel: UserViewModel = viewModel()) {
 
     Column(
         modifier = Modifier
+            .padding(top = 70.dp)
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
