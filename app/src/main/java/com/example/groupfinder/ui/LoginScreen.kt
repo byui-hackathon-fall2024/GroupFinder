@@ -95,20 +95,21 @@ fun LoginScreen(onLoginClick: (String, String) -> Unit) {
 
         // Login Button
         Button(
-            onClick = { authenticationManager.loginWithEmail(email, password)
-                .onEach { response ->
-                    when (response) {
-                        is AuthResponse.Success -> {
-                            onLoginClick(email, password)
-                        }
-                        is AuthResponse.Error -> {
-                            // Show an error message
-                            Toast.makeText(context, response.message, Toast.LENGTH_SHORT).show()
-                        }
-                    }
-
-                }
-                .launchIn(coroutineScope)
+            onClick = { onLoginClick(email, password)
+//                authenticationManager.loginWithEmail(email, password)
+//                .onEach { response ->
+//                    when (response) {
+//                        is AuthResponse.Success -> {
+//                            onLoginClick(email, password)
+//                        }
+//                        is AuthResponse.Error -> {
+//                            // Show an error message
+//                            Toast.makeText(context, response.message, Toast.LENGTH_SHORT).show()
+//                        }
+//                    }
+//
+//                }
+//                .launchIn(coroutineScope)
                       },
             modifier = Modifier.fillMaxWidth()
         ) {
