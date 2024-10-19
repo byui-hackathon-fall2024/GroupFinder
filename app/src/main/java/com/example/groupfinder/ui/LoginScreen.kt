@@ -29,6 +29,7 @@ import com.example.groupfinder.data.LoginUiState
 *  fix spacing
 *  use correct logo
 *  make sure username and password are being managed correctly
+*  create an account button
 * */
 
 
