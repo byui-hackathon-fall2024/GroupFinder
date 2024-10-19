@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "587976303188",
+    "project_id": "groupfinder-fe5cf",
+    "storage_bucket": "groupfinder-fe5cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587976303188:android:28de724e42f31e312c83c1",
+        "android_client_info": {
+          "package_name": "com.example.firebaseauthdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo6iC7T3BNq5qsV6VTZod-4EalPIcVi8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587976303188:android:f9d6f4c6129bdbd72c83c1",
+        "android_client_info": {
+          "package_name": "com.example.groupfinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo6iC7T3BNq5qsV6VTZod-4EalPIcVi8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
