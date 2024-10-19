@@ -36,7 +36,7 @@ fun MyGroups(
     Column(
         modifier = modifier
             .background(Color(0xFF24293E))
-            .padding(16.dp)
+            .padding(16.dp, top = 80.dp, 16.dp, 16.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.Top,
 
