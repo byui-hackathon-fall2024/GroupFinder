@@ -26,7 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.groupfinder.ui.LoginScreen
 import com.example.groupfinder.data.LoginUiState
 import com.example.groupfinder.ui.CreateGroup
-import com.example.groupfinder.ui.GroupList
+import com.example.groupfinder.ui.GroupListScreen
 import com.example.groupfinder.ui.MyGroups
 import com.example.groupfinder.ui.ProfileScreen
 //import com.example.groupfinder.ui.ProfileSearch
@@ -115,7 +115,7 @@ fun GroupFinderApp(
             }
             composable(route = GroupFinderScreen.GroupListScreen.name) {
                 //val userViewModel = UserViewModel()
-                GroupList()
+                GroupListScreen()
             }
 //            composable(route = GroupFinderScreen.ProfileSearchScreen.name) {
 //                //val userViewModel = UserViewModel()
