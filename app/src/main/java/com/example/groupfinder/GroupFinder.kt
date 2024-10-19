@@ -103,7 +103,8 @@ fun GroupFinderApp(
             }
             composable(route = GroupFinderScreen.ProfileScreen.name) {
                 val userViewModel = UserViewModel()
-                ProfileScreen(viewModel = userViewModel)
+                ProfileScreen(viewModel = userViewModel,
+                    onMyGroupsClick = { navController.navigate(GroupFinderScreen.MyGroupsScreen.name) })
             }
             composable(route = GroupFinderScreen.MyGroupsScreen.name) {
                 //val userViewModel = UserViewModel()

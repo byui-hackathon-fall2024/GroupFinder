@@ -50,7 +50,7 @@ import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 * */
 
 @Composable
-fun ProfileScreen(viewModel: UserViewModel = viewModel()) {
+fun ProfileScreen(viewModel: UserViewModel = viewModel(), onMyGroupsClick: () -> Unit = {}) {
 
     val user by viewModel.user.collectAsStateWithLifecycle() // get car
 
@@ -132,8 +132,16 @@ fun ProfileScreen(viewModel: UserViewModel = viewModel()) {
                     modifier = Modifier.padding(bottom = 4.dp)
                 )
             }
+            Row(modifier = Modifier) {
+                Button(onClick = onMyGroupsClick) {
+                    Text("MyGroups")
+                }
+            }
         }
     }
+//    Row(modifier = Modifier) {
+//        Button(onClick = onMyGroupsClick) { }
+//    }
 }
 
 
@@ -166,10 +174,10 @@ fun ProfileScreen(viewModel: UserViewModel = viewModel()) {
 
 
 
-//@Preview
-//@Composable
-//fun ProfileScreenPreview() {
-//    GroupFinderTheme {
-//        ProfileScreen(viewModel = viewModel())
-//    }
-//}
+@Preview
+@Composable
+fun ProfileScreenPreview() {
+    GroupFinderTheme {
+        ProfileScreen(viewModel = viewModel())
+    }
+}
