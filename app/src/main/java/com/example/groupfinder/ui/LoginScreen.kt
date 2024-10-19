@@ -1,5 +1,6 @@
 package com.example.groupfinder.ui
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,13 +18,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.groupfinder.R
-import com.example.groupfinder.data.LoginUiState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 /*
 * TODO:
@@ -39,6 +43,12 @@ import com.example.groupfinder.data.LoginUiState
 fun LoginScreen(onLoginClick: (String, String) -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+    val context = LocalContext.current
+    val authenticationManager = remember {
+        AuthenticationManager(context)
+    }
+    val coroutineScope = rememberCoroutineScope()
 
     Column(
         modifier = Modifier
@@ -85,7 +95,21 @@ fun LoginScreen(onLoginClick: (String, String) -> Unit) {
 
         // Login Button
         Button(
-            onClick = { onLoginClick(email, password) },
+            onClick = { authenticationManager.loginWithEmail(email, password)
+                .onEach { response ->
+                    when (response) {
+                        is AuthResponse.Success -> {
+                            onLoginClick(email, password)
+                        }
+                        is AuthResponse.Error -> {
+                            // Show an error message
+                            Toast.makeText(context, response.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                }
+                .launchIn(coroutineScope)
+                      },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
