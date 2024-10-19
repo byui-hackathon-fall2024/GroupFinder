@@ -9,11 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -35,9 +36,9 @@ import com.example.groupfinder.data.LoginUiState
 
 
 @Composable
-fun LoginScreen(
-    loginUiState: LoginUiState,
-    onLoginClick: (String, String) -> Unit) {
+fun LoginScreen(onLoginClick: (String, String) -> Unit) {
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -62,8 +63,8 @@ fun LoginScreen(
 
         // Username TextField
         TextField(
-            value = loginUiState.username,
-            onValueChange = { loginUiState.username = it },
+            value = email,
+            onValueChange = { email = it },
             label = { Text("Username") },
             modifier = Modifier
                 .fillMaxWidth()
@@ -72,8 +73,8 @@ fun LoginScreen(
 
         // Password TextField
         TextField(
-            value = loginUiState.password,
-            onValueChange = { loginUiState.password = it },
+            value = password,
+            onValueChange = { password = it },
             label = { Text("Password") },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -84,7 +85,7 @@ fun LoginScreen(
 
         // Login Button
         Button(
-            onClick = { onLoginClick(loginUiState.username, loginUiState.password) },
+            onClick = { onLoginClick(email, password) },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
@@ -95,8 +96,8 @@ fun LoginScreen(
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-    val loginUiState = LoginUiState()
-    LoginScreen(loginUiState) { username, password ->
-        println("Login clicked with username: $username and password: $password")
+    //val loginUiState = LoginUiState()
+    LoginScreen() { email, password ->
+        println("Login clicked with username: $email and password: $password")
     }
 }
